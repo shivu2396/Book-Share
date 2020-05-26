@@ -8,17 +8,13 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
   },
   INNER: {
-    marginTop: Size.moderateScale(20),
-    height: Size.deviceheight,
-    width: Size.devicewidth,
-    right: Size.moderateScale(90),
+    marginLeft: Size.moderateScale(20),
   },
   BOX: {
-    marginStart: Size.moderateScale(140),
-    bottom: Size.moderateScale(360),
-  },
-  MAIN: {
-    height: Size.verticalScale(90),
-    width: Size.moderateScale(90),
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

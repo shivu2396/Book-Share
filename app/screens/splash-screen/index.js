@@ -12,17 +12,10 @@ export const Splash = (props) => {
 
   return (
     <SafeAreaView style={styles.CONTAINER}>
-      <Image
-        style={styles.INNER}
-        source={Images.splashinner}
-        resizeMode="contain"
-      />
+      <Image style={styles.INNER} source={Images.splashinner} />
+
       <View style={styles.BOX}>
-        <Image
-          style={styles.MAIN}
-          source={Images.splashmain}
-          resizeMode="cover"
-        />
+        <Image style={styles.MAIN} source={Images.splashmain} />
       </View>
     </SafeAreaView>
   );

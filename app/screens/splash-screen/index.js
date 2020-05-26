@@ -1,15 +1,29 @@
-import * as React from 'react';
-import {View,Text,Button} from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Image, SafeAreaView } from 'react-native';
+import { styles } from './style';
+import { Images } from '../../theme/images';
 
-export const SplashScreen = ( props ) =>{
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>splash</Text>
-      <Button
-          title="Next Screen"
-          onPress={() => props.navigation.navigate('onboardingscreen')}
+export const Splash = (props) => {
+  useEffect(() => {
+    setTimeout(function () {
+      props.navigation.navigate('onboarding');
+    }, 3000);
+  });
+
+  return (
+    <SafeAreaView style={styles.CONTAINER}>
+      <Image
+        style={styles.INNER}
+        source={Images.splashinner}
+        resizeMode="contain"
+      />
+      <View style={styles.BOX}>
+        <Image
+          style={styles.MAIN}
+          source={Images.splashmain}
+          resizeMode="cover"
         />
       </View>
-    );
-  };
-  
+    </SafeAreaView>
+  );
+};

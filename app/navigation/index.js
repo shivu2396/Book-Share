@@ -1,24 +1,24 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-
-import { SplashScreen } from '../screens/splash-screen';
-import { OnboardingScreen } from '../screens/onboarding-screen';
-import { WelcomeScreen }from '../screens/welcome-screen';
-import { DiscoverScreen } from '../screens/discover-screen';
-import { LibraryScreen } from '../screens/library-screen';
-import { StoreScreen } from '../screens/store-screen';
-import { ProfileScreen } from '../screens/profile-screen';
+import { Splash } from '../screens/splash-screen';
+import { Onboarding } from '../screens/onboarding-screen';
+import { Welcome }from '../screens/welcome-screen';
+import { Discover } from '../screens/discover-screen';
+import { Library } from '../screens/library-screen';
+import { Store} from '../screens/store-screen';
+import { Profile } from '../screens/profile-screen';
 
 
 const Stack = createStackNavigator();
 function AuthStack() {
   return(
-    <Stack.Navigator>
-    <Stack.Screen name="splashscreen"     component={SplashScreen} />
-    <Stack.Screen name="onboardingscreen" component={OnboardingScreen} />
-    <Stack.Screen name="welcomescreen"    component={WelcomeScreen} />
+    <Stack.Navigator headerMode={'none'}>
+    <Stack.Screen name="splash"     component={Splash} />
+    <Stack.Screen name="onboarding" component={Onboarding} />
+    <Stack.Screen name="welcome"    component={Welcome} />
     </Stack.Navigator>
     );
 }
@@ -26,17 +26,54 @@ function AuthStack() {
 const Tab = createBottomTabNavigator();
 function BottomTab()  {
     return(
-    <Tab.Navigator>
-    <Tab.Screen name ="discoverscreen" component={DiscoverScreen} />
-    <Tab.Screen name="libraryscreen"    component={LibraryScreen} />
-    <Tab.Screen name="storescreen"      component={StoreScreen} />
-    <Tab.Screen name="profilescreen"    component={ProfileScreen} />
+    <Tab.Navigator 
+       headermode={'false'}
+       tabBarOptions={{
+       activeTintColor: '#e91e63',
+        }}
+    >
+    <Tab.Screen name ="Discover"
+        component={Discover} 
+        options={{
+        tabBarLabel: 'Discover',
+        tabBarIcon: ({ size }) => (
+        <MaterialCommunityIcons name="home"  size={size} />
+            ),
+          }}
+        />
+    <Tab.Screen name="Library"  
+        component={Library} 
+        options={{
+        tabBarLabel: 'Library',
+        tabBarIcon: ({  size }) => (
+        <MaterialCommunityIcons name="newspaper"  size={size} />
+            ),
+          }}
+        />
+    <Tab.Screen name="Store"    
+       component={Store} 
+       options={{
+       tabBarLabel: 'Store',
+       tabBarIcon: ({ color, size }) => (
+       <MaterialCommunityIcons name="fa-building-o " size={size} />
+        ),
+      }}
+    />
+    <Tab.Screen name="Profile" 
+      component={Profile} 
+      options={{
+      tabBarLabel: 'Profile',
+      tabBarIcon: ({ color, size }) => (
+      <MaterialCommunityIcons name="account" size={size} />
+        ),
+      }}
+    />
     </Tab.Navigator>
     );
 }
 const RootNavigation =() => {
 return(
-    <Stack.Navigator>
+    <Stack.Navigator headerMode={'none'}>
     <Stack.Screen name= "AuthStack" component = {AuthStack}/>
     <Stack.Screen name= "BottomTab" component = {BottomTab}/>
     </Stack.Navigator>

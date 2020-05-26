@@ -1,0 +1,17 @@
+export const Images = {
+  splashinner: require('./images/Inner.png'),
+  splashmain: require('./images/Main.png'),
+  onboardingbook: require('./images/Book.png'),
+  onboardingdraw: require('./images/Draw.png'),
+  onboardingbusiness: require('./images/Business.png'),
+  welcomepolitics: require('./images/Politics.png'),
+  welcomehistroy: require('./images/Histroy.png'),
+  welcomescience: require('./images/Science.png'),
+  welcomelaw: require('./images/Law.png'),
+  welcomefood: require('./images/Food.png'),
+  welcomemedical: require('./images/Medical.png'),
+  welcomedesign: require('./images/Design.png'),
+  welcomeculture: require('./images/Culture.png'),
+  welcomesport: require('./images/Sport.png'),
+  discoversearch: require('./images/Search.png'),
+};

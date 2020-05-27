@@ -14,59 +14,54 @@
 // //   );
 // // };
 
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 
-import { Images } from '../../theme/images';
 import { styles } from './style';
 
+import { onboardingdata } from '../../json-data/onboardingdata';
+
 export const Onboarding = () => {
+  const [EnableButton, setEnableButton] = useState(false);
   return (
-    <View style={styles.container}>
-      <TouchableOpacity>
-        <Text style={styles.TXT1}>Skip</Text>
-      </TouchableOpacity>
-
-      <Swiper
-        style={styles.wrapper}
-        height={340}
-        marginTop={90}
-        dot={<View style={styles.DOT} />}
-        activeDot={<View style={styles.ACTIVEDOT} />}
-        paginationStyle={{
-          top: 330,
-          // left: null,
-          left: 20,
-        }}
-      >
-        <View style={styles.slide1}>
-          <Image style={styles.BOOK} source={Images.onboardingbook} />
-          <View style={styles.BOX}>
-            <Text style={styles.TXT2}>
-              Share Your Favourites Books{'\n'}With Your Family And Friends
-            </Text>
-          </View>
+    <View>
+      <View style={styles.header}>
+        <TouchableOpacity>
+          <Text style={styles.TXT1}>Skip</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.content}>
+        <Swiper
+          loop={false}
+          index={0}
+          onIndexChanged={(index) => {
+            index == onboardingdata.length - 1
+              ? setEnableButton(true)
+              : setEnableButton(false);
+          }}
+          dot={<View style={styles.DOT} />}
+          activeDot={<View style={styles.ACTIVEDOT} />}
+        >
+          {onboardingdata.map((item, index) => {
+            return (
+              <View style={styles.SLIDE1} key={index}>
+                <View style={styles.imagev}>
+                  <Image source={item.src} />
+                </View>
+                <Text style={styles.TXT2}>{item.title}</Text>
+              </View>
+            );
+          })}
+        </Swiper>
+      </View>
+      {EnableButton ? (
+        <View style={styles.footer}>
+          <TouchableOpacity style={styles.but}>
+            <Text style={styles.txt4}>Get Started</Text>
+          </TouchableOpacity>
         </View>
-
-        <View style={styles.slide2}>
-          <Image style={styles.DRAW} source={Images.onboardingdraw} />
-          <View style={styles.BOX}>
-            <Text style={styles.TXT2}>
-              Discovery 20 Million{'\n'}Books Shelved Online
-            </Text>
-          </View>
-        </View>
-        <View style={styles.slide3}>
-          <Image style={styles.BUSINESS} source={Images.onboardingbusiness} />
-          <Text>nsxnsxms</Text>
-          <View style={styles.INNER}>
-            <TouchableOpacity style={styles.BUT}>
-              <Text style={styles.TXT3}> Get Started </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Swiper>
+      ) : null}
     </View>
   );
 };

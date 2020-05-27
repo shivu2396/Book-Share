@@ -1,47 +1,50 @@
 import * as React from 'react';
-import {View,Text,TouchableOpacity,StyleSheet,Image,FlatList,SafeAreaView,useState} from 'react-native';
- import {styles} from './style';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  FlatList,
+  SafeAreaView,
+  useState,
+} from 'react-native';
+import { styles } from './style';
 import { Images } from '../../theme/images';
 
-import  welcomedata from '../../json-data/welcomedata.json';
-
+import welcomedata from '../../json-data/welcomedata.json';
 
 function Item({ src }) {
   return (
-    // <View style={styles.item}>
-     
-      <View style ={styles.BOX}>
-         <Text style={styles.title}>{src}</Text>
-       <TouchableOpacity>
-      <Image style={styles.MAIN} source ={Images.welcomepolitics} />
+    <View style={styles.BOX}>
+      <Text style={styles.title}>{src}</Text>
+      <TouchableOpacity>
+        <Image style={styles.MAIN} source={Images.welcomepolitics} />
       </TouchableOpacity>
-       <TouchableOpacity>
-     <Image style={styles.MAIN} source ={Images.welcomehistroy} />
+      <TouchableOpacity>
+        <Image style={styles.MAIN} source={Images.welcomehistroy} />
       </TouchableOpacity>
-     <TouchableOpacity>
-       <Image style={styles.MAIN} source ={Images.welcomescience} />
-     </TouchableOpacity>
-       </View>
-    
+      <TouchableOpacity>
+        <Image style={styles.MAIN} source={Images.welcomescience} />
+      </TouchableOpacity>
+    </View>
   );
 }
-export const Welcome =(props)=> {
-
+export const Welcome = (props) => {
   return (
-      <SafeAreaView style={styles.CONTAINER}>
-     <View style ={styles.INNER}>
+    <SafeAreaView style={styles.CONTAINER}>
+      <View style={styles.INNER}>
         <Text style={styles.TXT1}>Welcome</Text>
-        <Text style = {styles.TXT2}>Choose the topics</Text>
-       </View>
+        <Text style={styles.TXT2}>Choose the topics</Text>
+      </View>
       <FlatList
-       data={welcomedata}
-       renderItem={({ item }) =>
-       <Item title={item.src} />}
-       keyExtractor={item => item.id}
-   />
-   </SafeAreaView>
+        data={welcomedata}
+        renderItem={({ item }) => <Item title={item.src} />}
+        keyExtractor={(item) => item.id}
+      />
+    </SafeAreaView>
   );
-}
+};
 
 // const styles = StyleSheet.create({
 //   container: {
@@ -57,7 +60,6 @@ export const Welcome =(props)=> {
 //     fontSize: 32,
 //   },
 // });
-
 
 /* 
   //     <View style={styles.CONTAINER}>

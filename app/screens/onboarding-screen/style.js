@@ -7,43 +7,22 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
 
-  wrapper: {},
-  slide1: {
-    flex: 1,
+  header: {
+    height: Size.moderateScale(50),
+    marginTop: Size.moderateScale(5),
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-end',
+    paddingHorizontal: Size.moderateScale(10),
   },
-
-  slide2: {
+  content: {
+    height: Size.moderateScale(440),
+    // backgroundColor: 'red',
+  },
+  footer: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-  },
-
-  slide3: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'pink',
-  },
-
-  text: {
-    color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
-
-  image: {
-    flex: 1,
-  },
-  TXT: {
-    marginTop: Size.moderateScale(80),
-  },
-  TXT1: {
-    marginTop: 25,
-    left: 310,
-    // justifyContent: 'flex-end',
-    // alignItems: 'flex-end',
+    paddingHorizontal: Size.moderateScale(20),
+    // width: '100%',
   },
 
   DOT: {
@@ -67,21 +46,39 @@ export const styles = StyleSheet.create({
     marginTop: Size.moderateScale(3),
     marginBottom: Size.moderateScale(3),
   },
-  BUT: {
-    height: Size.verticalScale(40),
-    width: Size.moderateScale(210),
+
+  but: {
+    height: Size.moderateScale(30),
+    marginStart: Size.moderateScale(10),
+    borderRadius: Size.moderateScale(10),
+    width: Size.moderateScale(180),
     backgroundColor: '#FF6EA1',
-    borderRadius: Size.moderateScale(8),
   },
-  TXT3: {
+  txt4: {
     marginStart: Size.moderateScale(60),
-    marginTop: Size.moderateScale(10),
+    marginTop: Size.moderateScale(40),
     color: 'white',
   },
-  INNER: {
-    marginTop: Size.moderateScale(10),
+
+  SLIDE1: {
+    flex: 1,
+    alignItems: 'center',
+    paddingHorizontal: Size.moderateScale(20),
+    width: '100%',
+  },
+  imagev: {
+    width: '100%',
+    height: '55%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+    // borderWidth: 2,
+    // borderColor: 'black',
   },
   TXT2: {
-    marginTop: Size.moderateScale(20),
+    marginTop: Size.moderateScale(40),
+    alignSelf: 'center',
+    fontSize: 20,
+    textAlign: 'center',
   },
 });

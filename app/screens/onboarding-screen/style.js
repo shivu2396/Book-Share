@@ -7,26 +7,26 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
 
-  header: {
+  HEADER: {
     height: Size.moderateScale(50),
     marginTop: Size.moderateScale(5),
     justifyContent: 'center',
     alignItems: 'flex-end',
     paddingHorizontal: Size.moderateScale(10),
   },
-  content: {
+
+  CONTENT: {
     height: Size.moderateScale(440),
-    // backgroundColor: 'red',
   },
-  footer: {
+
+  FOOTER: {
     flex: 1,
     alignItems: 'center',
     paddingHorizontal: Size.moderateScale(20),
-    // width: '100%',
   },
 
   DOT: {
-    borderColor: '#FF6EA1',
+    borderColor: Colors.primary,
     borderWidth: 0.7,
     width: Size.moderateScale(10),
     height: Size.verticalScale(10),
@@ -36,8 +36,9 @@ export const styles = StyleSheet.create({
     marginTop: Size.moderateScale(3),
     marginBottom: Size.moderateScale(3),
   },
+
   ACTIVEDOT: {
-    backgroundColor: '#FF6EA1',
+    backgroundColor: Colors.primary,
     width: Size.moderateScale(10),
     height: Size.verticalScale(10),
     borderRadius: Size.moderateScale(8),
@@ -47,16 +48,17 @@ export const styles = StyleSheet.create({
     marginBottom: Size.moderateScale(3),
   },
 
-  but: {
+  BUT: {
     height: Size.moderateScale(30),
     marginStart: Size.moderateScale(10),
     borderRadius: Size.moderateScale(10),
     width: Size.moderateScale(180),
-    backgroundColor: '#FF6EA1',
+    backgroundColor: Colors.primary,
   },
-  txt4: {
+
+  TXT4: {
     marginStart: Size.moderateScale(60),
-    marginTop: Size.moderateScale(40),
+    marginTop: Size.moderateScale(5),
     color: 'white',
   },
 
@@ -66,15 +68,15 @@ export const styles = StyleSheet.create({
     paddingHorizontal: Size.moderateScale(20),
     width: '100%',
   },
-  imagev: {
+
+  IMAGEV: {
     width: '100%',
     height: '55%',
     alignItems: 'center',
     justifyContent: 'center',
     alignContent: 'center',
-    // borderWidth: 2,
-    // borderColor: 'black',
   },
+
   TXT2: {
     marginTop: Size.moderateScale(40),
     alignSelf: 'center',

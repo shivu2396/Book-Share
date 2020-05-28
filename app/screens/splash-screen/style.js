@@ -7,9 +7,11 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.primary,
   },
+
   INNER: {
     marginLeft: Size.moderateScale(20),
   },
+
   BOX: {
     height: '100%',
     width: '100%',

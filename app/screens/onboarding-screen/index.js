@@ -4,20 +4,17 @@ import Swiper from 'react-native-swiper';
 import { styles } from './style';
 import { onboardingdata } from '../../json-data/onboardingdata';
 
-
-
 export const Onboarding = (props) => {
   const [EnableButton, setEnableButton] = useState(false);
   return (
-    g
     <View>
       <View style={styles.HEADER}>
         <TouchableOpacity>
           <Text style={styles.TXT1}>Skip</Text>
         </TouchableOpacity>
-      </View> 
+      </View>
 
-      {/* swiper block */}
+      {/* SWIPER BLOCK */}
       <View style={styles.CONTENT}>
         <Swiper
           loop={false}
@@ -42,6 +39,7 @@ export const Onboarding = (props) => {
           })}
         </Swiper>
       </View>
+      {/* FOOTER BLOCK */}
       {EnableButton ? (
         <View style={styles.FOOTER}>
           <TouchableOpacity

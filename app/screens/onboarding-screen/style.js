@@ -3,10 +3,6 @@ import { Size } from '../../theme/size';
 import { Colors } from '../../theme/colors';
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-
   HEADER: {
     height: Size.moderateScale(50),
     marginTop: Size.moderateScale(5),
@@ -17,12 +13,6 @@ export const styles = StyleSheet.create({
 
   CONTENT: {
     height: Size.moderateScale(440),
-  },
-
-  FOOTER: {
-    flex: 1,
-    alignItems: 'center',
-    paddingHorizontal: Size.moderateScale(20),
   },
 
   DOT: {
@@ -50,7 +40,7 @@ export const styles = StyleSheet.create({
 
   BUT: {
     height: Size.moderateScale(30),
-    marginStart: Size.moderateScale(10),
+    marginStart: Size.moderateScale(80),
     borderRadius: Size.moderateScale(10),
     width: Size.moderateScale(180),
     backgroundColor: Colors.primary,

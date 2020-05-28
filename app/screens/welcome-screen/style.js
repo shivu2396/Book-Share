@@ -1,86 +1,66 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Size } from '../../theme/size';
-import {Colors} from '../../theme/colors';
+import { Colors } from '../../theme/colors';
 
-export const styles = StyleSheet.create ({
-    CONTAINER:{
-        flex:1,
-        backgroundColor:'white',
-     },
-     INNER:{
-        height:Size.verticalScale(130),
-          width:Size.devicewidth,
-        backgroundColor:Colors.primary,
-     },
-     TXT1:{
-         marginTop:Size.moderateScale(50),
-         color:'white',
-         marginStart:Size.moderateScale(20),
-         fontSize:Size.moderateScale(20),
-
-     },
-     TXT2:{
-        fontSize:Size.moderateScale(20),
-        color:'white',
-        marginStart:Size.moderateScale(20),
-        marginTop:Size.moderateScale(10),
-     },
-     BOX:{
-        flexDirection:'row',
-     },
-     BOX2:{
-        flexDirection:'row',
-     },
-     MAIN:{
-         marginTop:Size.moderateScale(40),
-         marginStart:Size.moderateScale(20),
-         height:Size.verticalScale(80),
-         width:Size.moderateScale(80),
-     },
-     TXT3:{
-        marginStart:Size.moderateScale(50),
-
-     },
-     TXT4:{
-        marginStart:Size.moderateScale(60),
-      
-     },
-     TXT5:{
-        marginStart:Size.moderateScale(60),
-     },
-     TXT6:{
-        marginStart:Size.moderateScale(70),
-     },
-
-     TXT9:{
-        color:Colors.primary,
-         marginTop:Size.moderateScale(30),
-        marginStart:Size.moderateScale(160),
-       
-    },
-
-     TXT10:{
-         fontSize:Size.moderateScale(18),
-        marginTop:Size.moderateScale(5),
-         color:'white',
-        marginStart:Size.moderateScale(120),
-     },
-     BUT:{
-        height:Size.verticalScale(30),
-        width:Size.moderateScale(280),
-       borderRadius:Size.moderateScale(10),
-       marginTop:Size.moderateScale(10),
-       marginStart:Size.moderateScale(50),
-        backgroundColor:Colors.primary,
-     },
-     item: {
-      backgroundColor: '#f9c2ff',
-      padding: 20,
-      marginVertical: 8,
-      marginHorizontal: 16,
-    },
-    title: {
-      fontSize: 32,
-    },
-    
-    });
+export const styles = StyleSheet.create({
+  //   CONTAINER: {
+  //     flex: 1,
+  //     backgroundColor: 'white',
+  //   },
+  INNER: {
+    height: Size.verticalScale(130),
+    width: Size.devicewidth,
+    backgroundColor: Colors.primary,
+  },
+  MAIN: {
+    //  marginTop: Size.moderateScale(10),
+    //  marginStart: Size.moderateScale(10),
+    //  height: Size.verticalScale(85),
+    //  width: Size.moderateScale(80),
+  },
+  BOX: {
+    marginTop: Size.moderateScale(10),
+    marginStart: Size.moderateScale(10),
+  },
+  TXT1: {
+    marginTop: Size.moderateScale(50),
+    color: 'white',
+    marginStart: Size.moderateScale(20),
+    fontSize: Size.moderateScale(20),
+  },
+  TXT2: {
+    fontSize: Size.moderateScale(20),
+    color: 'white',
+    marginStart: Size.moderateScale(20),
+    marginTop: Size.moderateScale(10),
+  },
+  title: {
+    marginStart: Size.moderateScale(50),
+  },
+  test: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  FOOTER: {
+    marginStart: Size.moderateScale(40),
+    marginTop: Size.moderateScale(20),
+    height: Size.verticalScale(35),
+    width: Size.verticalScale(300),
+    borderRadius: Size.moderateScale(10),
+    backgroundColor: Colors.primary,
+  },
+  TXT3: {
+    marginTop: Size.moderateScale(20),
+    marginStart: Size.moderateScale(140),
+    color: '#FF6EA1',
+  },
+  BUT: {
+    marginTop: Size.moderateScale(3),
+    marginStart: Size.moderateScale(110),
+    fontSize: Size.moderateScale(18),
+    color: 'white',
+  },
+});

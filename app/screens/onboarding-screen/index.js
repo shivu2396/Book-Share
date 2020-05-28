@@ -8,11 +8,12 @@ export const Onboarding = (props) => {
   const [EnableButton, setEnableButton] = useState(false);
   return (
     <View>
-      <View style={styles.HEADER}>
-        <TouchableOpacity>
-          <Text style={styles.TXT1}>Skip</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        style={styles.HEADER}
+        onPress={() => props.navigation.navigate('welcome')}
+      >
+        <Text style={styles.TXT1}>Skip</Text>
+      </TouchableOpacity>
 
       {/* SWIPER BLOCK */}
       <View style={styles.CONTENT}>
@@ -39,9 +40,10 @@ export const Onboarding = (props) => {
           })}
         </Swiper>
       </View>
+
       {/* FOOTER BLOCK */}
       {EnableButton ? (
-        <View style={styles.FOOTER}>
+        <View>
           <TouchableOpacity
             style={styles.BUT}
             onPress={() => props.navigation.navigate('welcome')}

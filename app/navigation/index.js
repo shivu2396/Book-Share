@@ -1,82 +1,85 @@
 import * as React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { Splash } from '../screens/splash-screen';
 import { Onboarding } from '../screens/onboarding-screen';
-import { Welcome }from '../screens/welcome-screen';
+import { Welcome } from '../screens/welcome-screen';
 import { Discover } from '../screens/discover-screen';
 import { Library } from '../screens/library-screen';
-import { Store} from '../screens/store-screen';
+import { Store } from '../screens/store-screen';
 import { Profile } from '../screens/profile-screen';
-
 
 const Stack = createStackNavigator();
 function AuthStack() {
-  return(
+  return (
     <Stack.Navigator headerMode={'none'}>
-    <Stack.Screen name="splash"     component={Splash} />
-    <Stack.Screen name="onboarding" component={Onboarding} />
-    <Stack.Screen name="welcome"    component={Welcome} />
+      <Stack.Screen name="splash" component={Splash} />
+      <Stack.Screen name="onboarding" component={Onboarding} />
+      <Stack.Screen name="welcome" component={Welcome} />
     </Stack.Navigator>
-    );
+  );
 }
 
 const Tab = createBottomTabNavigator();
-function BottomTab()  {
-    return(
-    <Tab.Navigator 
-       headermode={'false'}
-       tabBarOptions={{
-       activeTintColor: '#e91e63',
-        }}
+function BottomTab() {
+  return (
+    <Tab.Navigator
+      headermode={'false'}
+      tabBarOptions={{
+        activeTintColor: '#e91e63',
+      }}
     >
-    <Tab.Screen name ="Discover"
-        component={Discover} 
+      <Tab.Screen
+        name="Discover"
+        component={Discover}
         options={{
-        tabBarLabel: 'Discover',
-        tabBarIcon: ({ size }) => (
-        <MaterialCommunityIcons name="home"  size={size} />
-            ),
-          }}
-        />
-    <Tab.Screen name="Library"  
-        component={Library} 
+          tabBarLabel: 'Discover',
+          tabBarIcon: ({ size, color }) => (
+            <MaterialCommunityIcons name="home" size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Library"
+        component={Library}
         options={{
-        tabBarLabel: 'Library',
-        tabBarIcon: ({  size }) => (
-        <MaterialCommunityIcons name="newspaper"  size={size} />
-            ),
-          }}
-        />
-    <Tab.Screen name="Store"    
-       component={Store} 
-       options={{
-       tabBarLabel: 'Store',
-       tabBarIcon: ({ color, size }) => (
-       <MaterialCommunityIcons name="fa-building-o " size={size} />
-        ),
-      }}
-    />
-    <Tab.Screen name="Profile" 
-      component={Profile} 
-      options={{
-      tabBarLabel: 'Profile',
-      tabBarIcon: ({ color, size }) => (
-      <MaterialCommunityIcons name="account" size={size} />
-        ),
-      }}
-    />
+          tabBarLabel: 'Library',
+          tabBarIcon: ({ size }) => (
+            <MaterialCommunityIcons name="newspaper" size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Store"
+        component={Store}
+        options={{
+          tabBarLabel: 'Store',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="fa-building-o " size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="account" size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
-    );
+  );
 }
-const RootNavigation =() => {
-return(
+const RootNavigation = () => {
+  return (
     <Stack.Navigator headerMode={'none'}>
-    <Stack.Screen name= "AuthStack" component = {AuthStack}/>
-    <Stack.Screen name= "BottomTab" component = {BottomTab}/>
+      <Stack.Screen name="AuthStack" component={AuthStack} />
+      <Stack.Screen name="BottomTab" component={BottomTab} />
     </Stack.Navigator>
-)
-}
+  );
+};
 export default RootNavigation;

@@ -1,63 +1,75 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet,
   Image,
   FlatList,
   SafeAreaView,
-  useState,
 } from 'react-native';
+
 import { styles } from './style';
+import { welcomedata } from '../../json-data/welcomedata';
 import { Images } from '../../theme/images';
 
-import welcomedata from '../../json-data/welcomedata.json';
-
-function Item({ src }) {
+function Item({ item }) {
   return (
     <View style={styles.BOX}>
-      <Text style={styles.title}>{src}</Text>
       <TouchableOpacity>
-        <Image style={styles.MAIN} source={Images.welcomepolitics} />
+        <Image style={styles.MAIN} source={item.src} />
+        <View style={styles.test}>
+          <Image source={Images.welcomepink} />
+        </View>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <Image style={styles.MAIN} source={Images.welcomehistroy} />
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Image style={styles.MAIN} source={Images.welcomescience} />
-      </TouchableOpacity>
+      <Text style={styles.title}>{item.title}</Text>
     </View>
   );
 }
 export const Welcome = (props) => {
+  const [topics, settopics] = useState([]);
+  const onPress = () => {
+    console.log('temp');
+  };
+
   return (
     <SafeAreaView style={styles.CONTAINER}>
       <View style={styles.INNER}>
         <Text style={styles.TXT1}>Welcome</Text>
         <Text style={styles.TXT2}>Choose the topics</Text>
       </View>
+      <TouchableOpacity>
+        <Text onPress={() => settopics(welcomedata)}> set data</Text>
+        <Text onPress={() => settopics()}> Hide data</Text>
+      </TouchableOpacity>
+
       <FlatList
-        data={welcomedata}
-        renderItem={({ item }) => <Item title={item.src} />}
+        numColumns={3}
+        data={topics}
+        renderItem={({ item }) => <Item item={item} />}
         keyExtractor={(item) => item.id}
       />
+      <TouchableOpacity>
+        <Text style={styles.TXT3}>More Topics</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.FOOTER}>
+        <Text style={styles.BUT}> Apply</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
 
 // const styles = StyleSheet.create({
-//   container: {
+//   CONTAINER: {
 //     flex: 1,
-//  },
-//   item: {
-//     backgroundColor: '#f9c2ff',
-//     padding: 20,
-//     marginVertical: 8,
-//     marginHorizontal: 16,
+//     backgroundColor: 'white',
 //   },
-//   title: {
-//     fontSize: 32,
+//   INNER: {
+//     height: 130,
+//     // width: Size.devicewidth,
+//     backgroundColor: '#FF6EA1',
+//   },
+//   BOX: {
+//     flexDirection: 'row',
 //   },
 // });
 

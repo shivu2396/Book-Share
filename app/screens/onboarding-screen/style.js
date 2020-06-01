@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
 
   BUT: {
     height: Size.moderateScale(30),
-    marginStart: Size.moderateScale(80),
+    marginStart: Size.moderateScale(100),
     borderRadius: Size.moderateScale(10),
     width: Size.moderateScale(180),
     backgroundColor: Colors.primary,

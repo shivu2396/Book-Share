@@ -3,146 +3,94 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image,
   FlatList,
   SafeAreaView,
 } from 'react-native';
 
 import { styles } from './style';
 import { welcomedata } from '../../json-data/welcomedata';
-import { Images } from '../../theme/images';
+import { Category } from '../../components/welcome-screen/Welinnerdata';
 
-function Item({ item }) {
-  return (
-    <View style={styles.BOX}>
-      <TouchableOpacity>
-        <Image style={styles.MAIN} source={item.src} />
-        <View style={styles.test}>
-          <Image source={Images.welcomepink} />
-        </View>
-      </TouchableOpacity>
-      <Text style={styles.title}>{item.title}</Text>
-    </View>
-  );
-}
 export const Welcome = (props) => {
-  const [topics, settopics] = useState([]);
-  const onPress = () => {
-    console.log('temp');
+  const [topics, settopics] = useState(welcomedata);
+  const [extra, setextra] = useState(0);
+
+  const onPress = (index) => {
+    // console.log(welcomedata);
+
+    for (var i = 0; i < topics.length; i++) {
+      console.log(welcomedata);
+      //   if (topics[i].title == topics[index].title) {
+      //     topics[i].is_selected = !topics[i].is_selected;
+      //     console.log();
+      //   }
+    }
+    settopics(topics);
+    setextra(extra + 1);
   };
 
+  // for (var i = 3; i > topics.length; i++) {
+  //   topics[i].is_selected('true');
+  // }
   return (
     <SafeAreaView style={styles.CONTAINER}>
-      <View style={styles.INNER}>
-        <Text style={styles.TXT1}>Welcome</Text>
-        <Text style={styles.TXT2}>Choose the topics</Text>
+      <View style={styles.HEADER}>
+        <Text style={styles.HEADERTEXT}> Welcome</Text>
+        <Text style={styles.HEADERTEXT}> choose the topics </Text>
       </View>
-      <TouchableOpacity>
-        <Text onPress={() => settopics(welcomedata)}> set data</Text>
-        <Text onPress={() => settopics()}> Hide data</Text>
-      </TouchableOpacity>
-
-      <FlatList
-        numColumns={3}
-        data={topics}
-        renderItem={({ item }) => <Item item={item} />}
-        keyExtractor={(item) => item.id}
-      />
-      <TouchableOpacity>
-        <Text style={styles.TXT3}>More Topics</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.FOOTER}>
-        <Text style={styles.BUT}> Apply</Text>
-      </TouchableOpacity>
+      <View style={styles.MAINCONTAINER}>
+        <FlatList
+          data={topics}
+          renderItem={({ item, index }) => (
+            <Category
+              id={item.id}
+              title={item.title}
+              src={item.src}
+              OnPress={() => onPress(index)}
+              is_selected={item.is_selected}
+            />
+          )}
+          numColumns={3}
+          keyExtractor={(item, index) => index}
+          extraData={extra}
+        />
+      </View>
+      <View style={styles.FOOTER}>
+        <TouchableOpacity>
+          <Text style={styles.TXT3}>More Topics</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.INNER}>
+          <Text style={styles.BUT}> Apply</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
-
-// const styles = StyleSheet.create({
-//   CONTAINER: {
-//     flex: 1,
-//     backgroundColor: 'white',
-//   },
-//   INNER: {
-//     height: 130,
-//     // width: Size.devicewidth,
-//     backgroundColor: '#FF6EA1',
-//   },
-//   BOX: {
-//     flexDirection: 'row',
-//   },
-// });
-
-/* 
-  //     <View style={styles.CONTAINER}>
-  //       <View style ={styles.INNER}>
-  //       <Text style={styles.TXT1}>Welcome</Text>
-  //       <Text style = {styles.TXT2}>Choose the topics</Text>
-  //     </View>
-
-  //     <View style ={styles.BOX}>
-  //     <TouchableOpacity>
-  //     <Image style={styles.MAIN} source ={Images.welcomepolitics} />
-  //     </TouchableOpacity>
-  //     <TouchableOpacity>
-  //     <Image style={styles.MAIN} source ={Images.welcomehistroy} />
-  //     </TouchableOpacity>
-  //     <TouchableOpacity>
-  //     <Image style={styles.MAIN} source ={Images.welcomescience} />
-  //     </TouchableOpacity>
-  //     </View>
-
-  //     <View style ={styles.BOX2}>
-  //    <Text style ={styles.TXT3}> Politics </Text>
-  //    <Text style ={styles.TXT4}> Histroy </Text>
-  //    <Text style ={styles.TXT4}> Science </Text>
-  //    </View>
-
-  //  <View style ={styles.BOX}>
-  //    <TouchableOpacity>
-  //     <Image style={styles.MAIN} source ={Images.welcomelaw} />
-  //     </TouchableOpacity>
-  //     <TouchableOpacity>
-  //     <Image style={styles.MAIN} source ={Images.welcomefood} />
-  //     </TouchableOpacity>
-  //     <TouchableOpacity>
-  //     <Image style={styles.MAIN} source ={Images.welcomemedical} />
-  //     </TouchableOpacity>
-  //     </View>
-
-  //     <View style ={styles.BOX2}>
-  //    <Text style ={styles.TXT5}> Law </Text>
-  //    <Text style ={styles.TXT6}> Food </Text>
-  //    <Text style ={styles.TXT6}> Medical </Text>
-  //    </View>
-
-  //    <View style ={styles.BOX}>
-  //    <TouchableOpacity>
-  //     <Image style={styles.MAIN} source ={Images.welcomedesign} />
-  //     </TouchableOpacity>
-  //     <TouchableOpacity>
-  //     <Image style={styles.MAIN} source ={Images.welcomeculture} />
-  //     </TouchableOpacity>
-  //     <TouchableOpacity>
-  //     <Image style={styles.MAIN} source ={Images.welcomesport} />
-  //     </TouchableOpacity>
-  //     </View>
-
-  //     <View style ={styles.BOX2}>
-  //    <Text style ={styles.TXT3}> Design </Text>
-  //    <Text style ={styles.TXT4}> Culture </Text>
-  //    <Text style ={styles.TXT5}> Sport </Text>
-  //    </View>
-      
-  //     <Text style ={styles.TXT9}>More Topics</Text>
-   
-    
-  //      <TouchableOpacity
-  //         onPress={() => props.navigation.navigate('BottomTab')}
-  //        style ={styles.BUT}>
-  //         <Text style ={styles.TXT10}> Apply </Text>
-  //       </TouchableOpacity>
-  //       </View>
-  //   );
-  // };
-   */
+//     <SafeAreaView style={styles.CONTAINER}>
+//       <View style={styles.INNER}>
+//         <Text style={styles.TXT1}>Welcome</Text>
+//         <Text style={styles.TXT2}>Choose the topics</Text>
+//       </View>
+//       {/* <TouchableOpacity> */}
+//       {/* <Text onPress={() => settopics(welcomedata)}> set data</Text>
+//         <Text onPress={() => settopics()}> Hide data</Text> */}
+//       {/* </TouchableOpacity> */}
+//       <View style={styles.inside}>
+//         <FlatList
+//           numColumns={3}
+//           data={welcomedata}
+//           renderItem={({ item }) => <Item item={item} />}
+//           keyExtractor={(item) => item.id}
+//         />
+//       </View>
+//       <View style={styles.footer}>
+//         <TouchableOpacity>
+//           <Text style={styles.TXT3}>More Topics</Text>
+//         </TouchableOpacity>
+//         <TouchableOpacity style={styles.FOOTER}>
+//           <Text style={styles.BUT}> Apply</Text>
+//         </TouchableOpacity>
+//       </View>
+//     </SafeAreaView>
+//   );
+// };

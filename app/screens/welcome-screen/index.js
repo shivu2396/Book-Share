@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -9,29 +9,37 @@ import {
 
 import { styles } from './style';
 import { welcomedata } from '../../json-data/welcomedata';
+
 import { Category } from '../../components/welcome-screen/Welinnerdata';
 
 export const Welcome = (props) => {
-  const [topics, settopics] = useState(welcomedata);
+  const [topics, settopics] = useState(
+    welcomedata.filter((welcomedata) => welcomedata.id < 9)
+  );
   const [extra, setextra] = useState(0);
+  const [activity, setactivity] = useState(9);
+  const flatListRef = useRef();
 
   const onPress = (index) => {
-    // console.log(welcomedata);
-
-    for (var i = 0; i < topics.length; i++) {
-      console.log(welcomedata);
-      //   if (topics[i].title == topics[index].title) {
-      //     topics[i].is_selected = !topics[i].is_selected;
-      //     console.log();
-      //   }
+    var cnt = 0;
+    for (var j = 0; j < topics.length; j++) {
+      if (topics[j].is_selected && topics[j].id != topics[index].id) {
+        cnt++;
+      }
+    }
+    if (cnt < 3) {
+      for (var i = 0; i < topics.length; i++) {
+        if (topics[i].id == topics[index].id) {
+          topics[i].is_selected = !topics[i].is_selected;
+        }
+      }
     }
     settopics(topics);
+    console.log(topics);
     setextra(extra + 1);
   };
-
-  // for (var i = 3; i > topics.length; i++) {
-  //   topics[i].is_selected('true');
-  // }
+  // data = createRef();
+  //  data= createRef <FlatList<any>>();
   return (
     <SafeAreaView style={styles.CONTAINER}>
       <View style={styles.HEADER}>
@@ -40,7 +48,12 @@ export const Welcome = (props) => {
       </View>
       <View style={styles.MAINCONTAINER}>
         <FlatList
+          ref={flatListRef}
+          onContentSizeChange={() => {
+            flatListRef.current.scrollToEnd({ animated: true });
+          }}
           data={topics}
+          // scrollEnabled={false}
           renderItem={({ item, index }) => (
             <Category
               id={item.id}
@@ -55,10 +68,25 @@ export const Welcome = (props) => {
           extraData={extra}
         />
       </View>
+
       <View style={styles.FOOTER}>
-        <TouchableOpacity>
-          <Text style={styles.TXT3}>More Topics</Text>
-        </TouchableOpacity>
+        <Text
+          style={styles.TXT3}
+          onPress={() => {
+            settopics(
+              welcomedata.filter((welcomedata) => welcomedata.id < activity + 3)
+            );
+            setactivity(activity + 3);
+          }}
+        >
+          More Topics
+        </Text>
+        {/* <Button
+          title="scroll down"
+          onPress={() => {
+            data.current.scrollToEnd();
+          }}
+        /> */}
         <TouchableOpacity style={styles.INNER}>
           <Text style={styles.BUT}> Apply</Text>
         </TouchableOpacity>
@@ -66,6 +94,25 @@ export const Welcome = (props) => {
     </SafeAreaView>
   );
 };
+
+/* <View style={styles.FOOTER}>
+        <TouchableOpacity>
+          <Text onPress={() => settopics(welcomedata)}> Display </Text>
+          <Text style={styles.bbt} onPress={() => setactivity(act)}>
+            {' '}
+            Hide
+          </Text>
+        </TouchableOpacity>
+      </View> */
+
+/* <View style={styles.FOOTER}>
+        <Text style={styles.TXT3}>More Topics</Text>
+
+        <TouchableOpacity style={styles.INNER}>
+          <Text style={styles.BUT}> Apply</Text>
+        </TouchableOpacity>
+      </View> */
+
 //     <SafeAreaView style={styles.CONTAINER}>
 //       <View style={styles.INNER}>
 //         <Text style={styles.TXT1}>Welcome</Text>

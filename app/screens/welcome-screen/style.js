@@ -63,6 +63,9 @@ export const styles = StyleSheet.create({
     paddingLeft: 35,
     paddingBottom: 10,
   },
+  but: {
+    marginTop: Size.moderateScale(40),
+  },
 });
 //   CONTAINER: {
 //     flex: 1,

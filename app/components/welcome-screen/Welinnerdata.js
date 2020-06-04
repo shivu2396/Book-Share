@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { styles } from './style';
 import { Images } from '../../theme/images';
 
-export const Category = ({ title, src, is_selected, OnPress, id }) => (
+export const Category = ({ title, src, is_selected, OnPress, id, subpart }) => (
   <View style={styles.INSIDE}>
     <TouchableOpacity onPress={() => OnPress()}>
       <Image style={styles.MAIN} source={src} />
@@ -15,7 +15,7 @@ export const Category = ({ title, src, is_selected, OnPress, id }) => (
       )}
 
       <Text style={styles.TITLE}>
-        {title} {id}
+        {title} {id} {subpart}
       </Text>
     </TouchableOpacity>
   </View>

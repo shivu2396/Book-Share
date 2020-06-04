@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   FlatList,
   SafeAreaView,
+  TextInput,
 } from 'react-native';
 
 import { styles } from './style';
@@ -13,12 +14,14 @@ import { welcomedata } from '../../json-data/welcomedata';
 import { Category } from '../../components/welcome-screen/Welinnerdata';
 
 export const Welcome = (props) => {
-  const [topics, settopics] = useState(
-    welcomedata.filter((welcomedata) => welcomedata.id < 9)
-  );
+  const [topics, settopics] = useState(welcomedata);
+  // const [topics, settopics] = useState(
+  //   welcomedata.filter((welcomedata) => welcomedata.id < 9)
+  // );
   const [extra, setextra] = useState(0);
-  const [activity, setactivity] = useState(9);
-  const flatListRef = useRef();
+  // const [activity, setactivity] = useState(welcomedata);
+  // const flatListRef = useRef();
+  const [searchText, setSearchText] = useState(['']);
 
   const onPress = (index) => {
     var cnt = 0;
@@ -34,30 +37,94 @@ export const Welcome = (props) => {
         }
       }
     }
+
     settopics(topics);
     console.log(topics);
     setextra(extra + 1);
   };
-  // data = createRef();
-  //  data= createRef <FlatList<any>>();
+  const onPressFilter = (subpart) => {
+    settopics(
+      welcomedata.filter((welcomedata) => welcomedata.subpart == subpart)
+    );
+    topics.filter((ele) => (ele.is_selected = false));
+  };
+  const onChangeText = (e) => {
+    setSearchText(e);
+    if (e.trim() != '') {
+      let mySearchText = e.toLowerCase();
+      let filterName = welcomedata.filter((item) => {
+        return item.title.toLowerCase().match(mySearchText);
+      });
+      settopics(filterName);
+    } else {
+      settopics(welcomedata);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.CONTAINER}>
       <View style={styles.HEADER}>
         <Text style={styles.HEADERTEXT}> Welcome</Text>
         <Text style={styles.HEADERTEXT}> choose the topics </Text>
+        <TextInput
+          style={{
+            width: 180,
+            backgroundColor: 'white',
+            marginBottom: 10,
+          }}
+          // ref="search"
+          placeholder="Search"
+          onChangeText={(text) => onChangeText(text)}
+          value={searchText}
+          underlineColorAndroid="transparent"
+        />
       </View>
       <View style={styles.MAINCONTAINER}>
-        <FlatList
-          ref={flatListRef}
-          onContentSizeChange={() => {
-            flatListRef.current.scrollToEnd({ animated: true });
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            padding: 8,
+            marginStart: 13,
           }}
+        >
+          <Text
+            style={{ fontSize: 18, color: '#FF6EA1' }}
+            onPress={() => {
+              settopics(welcomedata);
+            }}
+          >
+            All
+          </Text>
+          <Text
+            style={{ fontSize: 18, color: '#FF6EA1' }}
+            onPress={() => {
+              onPressFilter('GJ');
+            }}
+          >
+            GJ
+          </Text>
+          <Text
+            style={{ fontSize: 18, color: '#FF6EA1' }}
+            onPress={() => {
+              onPressFilter('MH');
+            }}
+          >
+            MH
+          </Text>
+        </View>
+        <FlatList
+          // ref={flatListRef}
+          // onContentSizeChange={() => {
+          //   flatListRef.current.scrollToEnd({ animated: true });
+          // }}
           data={topics}
           // scrollEnabled={false}
           renderItem={({ item, index }) => (
             <Category
               id={item.id}
               title={item.title}
+              subpart={item.subpart}
               src={item.src}
               OnPress={() => onPress(index)}
               is_selected={item.is_selected}
@@ -70,7 +137,7 @@ export const Welcome = (props) => {
       </View>
 
       <View style={styles.FOOTER}>
-        <Text
+        {/* <Text
           style={styles.TXT3}
           onPress={() => {
             settopics(
@@ -80,7 +147,7 @@ export const Welcome = (props) => {
           }}
         >
           More Topics
-        </Text>
+        </Text> */}
         {/* <Button
           title="scroll down"
           onPress={() => {

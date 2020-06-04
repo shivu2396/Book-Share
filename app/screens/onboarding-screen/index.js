@@ -10,7 +10,7 @@ export const Onboarding = (props) => {
     <View>
       <TouchableOpacity
         style={styles.HEADER}
-        onPress={() => props.navigation.navigate('welcome')}
+        onPress={() => props.navigation.navigate('landing')}
       >
         <Text style={styles.TXT1}>Skip</Text>
       </TouchableOpacity>
@@ -46,7 +46,7 @@ export const Onboarding = (props) => {
         <View>
           <TouchableOpacity
             style={styles.BUT}
-            onPress={() => props.navigation.navigate('welcome')}
+            onPress={() => props.navigation.navigate('landing')}
           >
             <Text style={styles.TXT4}>Get Started</Text>
           </TouchableOpacity>

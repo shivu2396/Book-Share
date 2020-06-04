@@ -10,6 +10,9 @@ import { Discover } from '../screens/discover-screen';
 import { Library } from '../screens/library-screen';
 import { Store } from '../screens/store-screen';
 import { Profile } from '../screens/profile-screen';
+import { Landing } from '../screens/landing-screen';
+import { Signin } from '../screens/signin-screen';
+import { Signup } from '../screens/signup-screen';
 
 const Stack = createStackNavigator();
 function AuthStack() {
@@ -17,6 +20,9 @@ function AuthStack() {
     <Stack.Navigator headerMode={'none'}>
       <Stack.Screen name="splash" component={Splash} />
       <Stack.Screen name="onboarding" component={Onboarding} />
+      <Stack.Screen name="landing" component={Landing} />
+      <Stack.Screen name="signup" component={Signup} />
+      <Stack.Screen name="signin" component={Signin} />
       <Stack.Screen name="welcome" component={Welcome} />
     </Stack.Navigator>
   );

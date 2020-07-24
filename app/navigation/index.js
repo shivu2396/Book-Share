@@ -3,6 +3,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import { Test } from '../screens/test-screen';
+import { Listing } from '../screens/data-screen';
+import { Detail } from '../screens/delail-screen';
 import { Splash } from '../screens/splash-screen';
 import { Onboarding } from '../screens/onboarding-screen';
 import { Welcome } from '../screens/welcome-screen';
@@ -18,12 +21,16 @@ const Stack = createStackNavigator();
 function AuthStack() {
   return (
     <Stack.Navigator headerMode={'none'}>
-      <Stack.Screen name="splash" component={Splash} />
-      <Stack.Screen name="onboarding" component={Onboarding} />
-      <Stack.Screen name="landing" component={Landing} />
+      <Stack.Screen name="Test" component={Test} />
+      {/* <Stack.Screen name="splash" component={Splash} />
+      <Stack.Screen name="onboarding" component={Onboarding} /> */}
+
+      {/* <Stack.Screen name="landing" component={Landing} />
       <Stack.Screen name="signup" component={Signup} />
-      <Stack.Screen name="signin" component={Signin} />
-      <Stack.Screen name="welcome" component={Welcome} />
+      <Stack.Screen name="signin" component={Signin} /> */}
+      {/* <Stack.Screen name="listing" component={Listing} />
+      <Stack.Screen name="detail" component={Detail} />
+      <Stack.Screen name="welcome" component={Welcome} /> */}
     </Stack.Navigator>
   );
 }

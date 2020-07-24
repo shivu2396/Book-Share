@@ -3,77 +3,65 @@ import { Size } from '../../theme/size';
 import { Colors } from '../../theme/colors';
 
 export const styles = StyleSheet.create({
-  MAIN: {
+  CONTAINER: {
     flex: 1,
     backgroundColor: Colors.primary,
   },
+
   HEADER: {
-    backgroundColor: Colors.primary,
     height: Size.deviceHeight * 0.3,
-    paddingHorizontal: Size.moderateScale(20),
-    justifyContent: 'center',
-    alignItems: 'center',
+
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
-  headerText: {
+
+  HEADERTXT: {
     color: Colors.secondary,
-    fontSize: Size.moderateScale(36),
+    // padding: Size.moderateScale(15),
+    fontSize: Size.moderateScale(37),
+    marginHorizontal: Size.moderateScale(40),
     fontWeight: '600',
   },
-  content: {
+
+  image: {
+    height: Size.moderateScale(25),
+    width: Size.moderateScale(15),
+  },
+
+  CONTENT: {
     flex: 1,
     borderTopLeftRadius: Size.moderateScale(18),
     borderTopRightRadius: Size.moderateScale(18),
     backgroundColor: Colors.secondary,
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    // backgroundColor: 'red',
+
+    padding: Size.moderateScale(25),
   },
-  inner: {
-    height: Size.deviceHeight * 0.1,
-    width: Size.deviceHeight * 0.7,
-    padding: 30,
-    // backgroundColor: 'yellow',
-    // paddingHorizontal: 20,
-    // paddingVertical: 10,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // marginBottom: 110,
-  },
-  txt: {
-    marginStart: 30,
-    padding: 5,
-    // marginTop: 10,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    fontSize: 30,
-  },
-  box1: {
-    height: '13%',
-    padding: 10,
-    marginStart: 20,
-    marginTop: 20,
-    width: '90%',
-    // width: Size.deviceHeight * 0.5,
-    justifyContent: 'center',
-    alignItems: 'center',
+
+  TXT: {
+    padding: Size.moderateScale(10),
+    borderColor: Colors.primary,
     borderRadius: 12,
     borderWidth: 1,
+    marginVertical: Size.moderateScale(10),
   },
+  // INNER: {
+  //   // paddingTop: Size.moderateScale(15),
+  // },
   FOOTER: {
-    height: Size.deviceHeight * 0.12,
-    backgroundColor: 'white',
+    height: Size.deviceHeight * 0.13,
+    // backgroundColor: 'green',
+    backgroundColor: Colors.secondary,
   },
-  btnsignup: {
+  SIGNUPBTN: {
     alignItems: 'center',
     paddingVertical: Size.moderateScale(15),
-    backgroundColor: 'black',
+    backgroundColor: Colors.primary,
     borderRadius: Size.moderateScale(15),
-    marginHorizontal: Size.moderateScale(35),
-    // marginTop: Size.moderateScale(60),
+    marginHorizontal: Size.moderateScale(20),
   },
-  image: {
-    marginStart: 20,
-  },
-  btnsignupText: {
+
+  SIGNUPTXT: {
     fontSize: Size.moderateScale(18),
     color: 'white',
     fontWeight: '600',

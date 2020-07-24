@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
+
 import { styles } from './style';
 import { Images } from '../../theme/images';
 
@@ -8,14 +9,15 @@ export const Landing = (props) => {
     <View style={styles.MAIN}>
       {/* Header Block */}
       <View style={styles.HEADER}>
-        <Text style={styles.headerText}>Book Share</Text>
+        <Text style={styles.headerText}>BOOK SHARE</Text>
       </View>
 
-      {/* content Block */}
+      {/* Content Block */}
       <View style={styles.content}>
         <Image style={styles.image} source={Images.landingnote} />
         <Image source={Images.landingwrite} style={styles.imageText} />
       </View>
+
       {/* Footer Block */}
       <View style={styles.FOOTER}>
         <TouchableOpacity
@@ -28,7 +30,7 @@ export const Landing = (props) => {
           style={styles.btnsignin}
           onPress={() => props.navigation.navigate('signin')}
         >
-          <Text style={styles.btnsigninText}>sign In</Text>
+          <Text style={styles.btnsigninText}>Sign In</Text>
         </TouchableOpacity>
       </View>
     </View>

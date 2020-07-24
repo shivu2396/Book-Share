@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
 
   HEADER: {
     backgroundColor: Colors.primary,
-    height: '18%',
+    height: '25%',
     paddingHorizontal: 15,
     justifyContent: 'center',
     alignItems: 'flex-start',

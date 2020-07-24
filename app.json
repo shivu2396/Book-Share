@@ -2,14 +2,11 @@
   "expo": {
     "name": "BookShare",
     "slug": "BookShare",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "icon": "./assets/myIcon.png",
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./app/theme/images/icon.png",
+
     "splash": {
       "image": "./app/theme/images/splash.png",
       "resizeMode": "contain",
@@ -18,9 +15,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     }

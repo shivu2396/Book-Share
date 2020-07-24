@@ -16,14 +16,19 @@ import { Profile } from '../screens/profile-screen';
 import { Landing } from '../screens/landing-screen';
 import { Signin } from '../screens/signin-screen';
 import { Signup } from '../screens/signup-screen';
+import { WishlistScreen } from '../screens/wishlist-screen';
 
 const Stack = createStackNavigator();
 function AuthStack() {
   return (
     <Stack.Navigator headerMode={'none'}>
-      <Stack.Screen name="Test" component={Test} />
+      <Stack.Screen name="wishlist" component={WishlistScreen} />
+      {/*<Stack.Screen name="Test" component={Test} /> */}
+      {/* <Stack.Screen name="Test" component={Test} /> */}
       {/* <Stack.Screen name="splash" component={Splash} />
-      <Stack.Screen name="onboarding" component={Onboarding} /> */}
+      <Stack.Screen name="onboarding" component={Onboarding} />
+      <Stack.Screen name="welcome" component={Welcome} />
+      <Stack.Screen name="library" component={Library} /> */}
 
       {/* <Stack.Screen name="landing" component={Landing} />
       <Stack.Screen name="signup" component={Signup} />

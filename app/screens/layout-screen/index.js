@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Text, View, TextInput } from 'react-native';
 import { ThemeContext } from '../../components/theme-screen/themecontext';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export const Layout = () => {
   const [header, setheader] = useState([]);

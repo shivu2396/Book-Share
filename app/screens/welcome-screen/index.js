@@ -154,7 +154,10 @@ export const Welcome = (props) => {
             data.current.scrollToEnd();
           }}
         /> */}
-        <TouchableOpacity style={styles.INNER}>
+        <TouchableOpacity
+          style={styles.INNER}
+          onPress={() => props.navigation.navigate('library')}
+        >
           <Text style={styles.BUT}> Apply</Text>
         </TouchableOpacity>
       </View>

@@ -18,4 +18,5 @@ export const Images = {
   welcomesport: require('./images/Sport.png'),
   welcomepink: require('./images/Pink.png'),
   discoversearch: require('./images/Search.png'),
+  librarybusiness: require('./images/Business.png'),
 };

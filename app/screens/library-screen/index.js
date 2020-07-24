@@ -15,12 +15,23 @@ export const Library = (props) => {
           underlineColorAndroid="transparent"
         />
       </View>
-      <View>
-        <Text> General </Text>
-        <Text> New </Text>
+      <View style={styles.HEADER}>
+        <Text style={styles.TXT}> General </Text>
+        <Text style={styles.TXT}> New </Text>
+        <Text style={styles.TXT}> Most Viewed </Text>
       </View>
-      <Text> General </Text>
-      <Text> General </Text>
+
+      <View style={styles.CONTENT}>
+        <Image source={Images.librarybusiness} style={styles.IMAGESTYLE} />
+      </View>
+
+      <View style={styles.CONTENT1}>
+        <Image source={Images.librarybusiness} style={styles.IMAGESTYLE} />
+
+        <View style={styles.CONTENT1}>
+          <Image source={Images.librarybusiness} style={styles.IMAGESTYLE} />
+        </View>
+      </View>
     </View>
   );
 };
